@@ -88,10 +88,18 @@ nav,
 /* --------------------------------EXTRA--------------------------------------------*/
 
 .btn {
-  margin-left:20%;
+  margin-left:15%;
   margin-bottom: 5%;
+  color: rgb(255, 205, 205);
+  background-color: rgb(206, 46, 18);
+  border-color: rgb(206, 46, 18);
 }
 
+.btn:hover {
+  background-color: rgb(255, 205, 205);
+  color: black;
+  border-color: rgb(206, 46, 18);
+}
 .certHead {
   margin-top: 10%;
 }
