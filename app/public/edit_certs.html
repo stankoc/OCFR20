@@ -32,7 +32,6 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="members.html">View Members</a>
               <a class="dropdown-item" href="add_members.html">Add Members</a>
-              <a class="dropdown-item" href="edit_members.html">Edit Members</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -40,9 +39,8 @@
               Certifications
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="certs.html">View Certifications</a>
+              <a class="dropdown-item" href="edit_certs.html">View Certifications</a>
               <a class="dropdown-item" href="add_certs.html">Add Certifications</a>
-              <a class="dropdown-item" href="edit_certs.html">Edit Certifications</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -58,3 +56,63 @@
         </ul>
       </div>
     </nav>
+    <div class="container-fluid">
+      <div class="row" id="triagePage">
+        <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
+          <form method="post" v-on:submit.prevent="handleNewPtForm">
+          <h3>Certification List</h3>
+          <div class="patientCard" v-for="pt in ptList" v-on:click="activePt = pt">
+            <span class="lastName">{{ pt.certTitle }}</span>
+          </div>
+
+          <!-- <button v-on:click="yell()">Click Me!</button> -->
+        </div>
+
+        <div class="col-6">
+          <h1>Certification Detail</h1>
+          <form v-on:submit.prevent="handleCertForm">
+            <div class="form-group">
+              <label for="certTitle">Title</label>
+              <input class="form-control" id="ptName" v-bind:value="certTitle" readonly>
+              <label for="renewalDate">Renewal Date</label>
+              <input class="form-control" id="ptName" v-bind:value="renewalDate" readonly>
+              <label for="expDate">Expiration Date</label>
+              <input class="form-control" id="ptName" v-bind:value="expDate" readonly>
+              <br>
+              <button type="editCertification" class="btn btn-primary">Edit Certification</button>
+            </div>
+          </form>
+          <h3 class="certHead">Members With Certification</h3>
+          <form v-on:submit.prevent="handleMemCertForm">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+              <label class="form-check-label" for="activePt"> <!-- Need to fix values in all of this -->
+                <div class="patientCard" v-for="pt in ptList" v-on:click="activePt = pt">
+                  <span value="lastName" class="lastName">{{ pt.lastName }}</span>,
+                  <span value="firstName" clas="firstName">{{ pt.firstName }}</span>
+                </div>
+              </label>
+              <br>
+              <br>
+            </div>
+              <button type="deleteMember" class="btn btn-primary">Delete Certification For Member</button>
+          </form>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
+    <!-- END content -->
+
+    <!-- Footer? Insert here -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/index.app.js"></script>
+  </body>
+</html>
