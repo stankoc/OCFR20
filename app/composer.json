@@ -1,9 +1,9 @@
 {
-    "name": "stankoc/OCFR20",
+    "name": "iu-msis/project-triage-2020",
     "description": "An in-class example project",
     "license": "private",
     "authors": [{
-        "name": "Chris Stanko"
+        "name": "Tom Gregory"
     }],
     "require": {
       "ramsey/uuid": "^4.1"
