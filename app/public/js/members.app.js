@@ -57,6 +57,9 @@ var app = new Vue({
         homePhoneNum: ''
       }
     },
+    pullMemberCertifications( evt ) {
+
+    }
 /*   handleNewMemberForm( evt ) {
       // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
 
@@ -100,8 +103,16 @@ var app = new Vue({
 
       console.log(json)}
     );
+
+    fetch("api/memberCerts/")
+      .then( response => response.json() )
+      .then( json => {
+        this.mctList = json;
+
+        console.log(json)}
+      );
     //this.newMbForm = this.newMbData();
-  },
+  }
   // created() {
   //   fetch("api/memberCerts/")
   //   .then( response => response.json() )
