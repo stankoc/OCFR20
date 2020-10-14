@@ -1,5 +1,6 @@
+//need to change to match memberCerts
 var app = new Vue({
-  el: '#newCertsPage',
+  el: '#newMemberCertsPage',
   data: {
     ctList:[],
     activeCt: null,
