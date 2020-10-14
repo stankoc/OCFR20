@@ -2,12 +2,31 @@ var app = new Vue({
   el: '#newMemberPage',
   data: {
     mbList:[],
-    activeMb: null
+    activeMb: null,
+    memberForm: {}
   },
-  computed: {
-    activeMemberName() {
-      return this.activeMb ? this.activeMb.lastName + ', ' + this.activeMb.firstName : ''
-    }
+    computed: {
+    activeMemberFirstName() {
+      return this.activeMb ? this.activeMb.firstName : ''
+    },
+    activeMemberLastName() {
+      return this.activeMb ? this.activeMb.lastName : ''
+    },
+    activeMemberRadioNum() {
+      return this.activeMb ? this.activeMb.radioNumber : ''
+    },
+    activeMemberStationNum() {
+      return this.activeMb ? this.activeMb.stationNumber : ''
+    },
+    activeMemberEmail() {
+      return this.activeMb ? this.activeMb.email : ''
+    },
+    activeMemberCell() {
+      return this.activeMb ? this.activeMb.cellPhoneNum : ''
+    },
+    activeMemberPosition() {
+      return this.activeMb ? this.activeMb.position : ''
+    },
   },
   methods: {
     newMemberData() {
@@ -55,15 +74,18 @@ var app = new Vue({
       console.log(this.newMbForm);
 
       this.newMbForm = this.newMbData();
-    },
-    handleTriageForm( evt ) {
+    }, */
+    handleMemberForm( evt ) {
       console.log("Form submitted!");
 
-      this.triageForm.mb = this.activeMb;
-      console.log(this.triageForm);
+      if (!this.activeMb) {
+        alert("ERROR: No member selected!");
+        return false;
+      }
+      this.memberForm.personID = this.activeMb.personID;
 
-    }*/
-  }, 
+    }
+  },
   created() {
     fetch("api/members/")
     .then( response => response.json() )
