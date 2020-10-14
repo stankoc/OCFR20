@@ -1,28 +1,12 @@
 var app = new Vue({
   el: '#newMemberPage',
   data: {
-    personID: '',
-    firstName: '',
-    lastName: '',
-    address: '',
-    city: '',
-    st: '',
-    zip: '',
-    email: '',
-    dob: '',
-    startDate: '',
-    position: '',
-    gender: '',
-    stationNumber: '',
-    isActive: '',
-    radioNumber: '',
-    workPhoneNum: '',
-    cellPhoneNum: '',
-    homePhoneNum: ''
+    mbList:[],
+    activeMb: null
   },
   computed: {
     activeMemberName() {
-      return this.activePt ? this.activePt.lastName + ', ' + this.activePt.firstName : ''
+      return this.activeMb ? this.activeMb.lastName + ', ' + this.activeMb.firstName : ''
     }
   },
   methods: {
@@ -48,14 +32,14 @@ var app = new Vue({
         homePhoneNum: ''
       }
     },
-    handleNewMemberForm( evt ) {
+/*   handleNewMemberForm( evt ) {
       // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
 
       // TODO: Validate the data!
 
       fetch('api/records/post.php', {
         method:'POST',
-        body: JSON.stringify(this.newPtForm),
+        body: JSON.stringify(this.newMbForm),
         headers: {
           "Content-Type": "application/json; charset=utf-8"
         }
@@ -64,30 +48,31 @@ var app = new Vue({
       .then( json => {
         console.log("Returned from post:", json);
         // TODO: test a result was returned!
-        this.ptList.push(json[0]);
+        this.mbList.push(json[0]);
       });
 
       console.log("Creating (POSTing)...!");
-      console.log(this.newPtForm);
+      console.log(this.newMbForm);
 
-      this.newPtForm = this.newPtData();
+      this.newMbForm = this.newMbData();
     },
     handleTriageForm( evt ) {
       console.log("Form submitted!");
 
-      this.triageForm.pt = this.activePt;
+      this.triageForm.mb = this.activeMb;
       console.log(this.triageForm);
 
-    }
-  },
+    }*/
+  }, 
   created() {
-    fetch("api/records/")
+    fetch("api/members/")
     .then( response => response.json() )
     .then( json => {
-      this.ptList = json;
+      this.mbList = json;
 
       console.log(json)}
     );
-    this.newPtForm = this.newPtData();
+    //this.newMbForm = this.newMbData();
   }
+
 })

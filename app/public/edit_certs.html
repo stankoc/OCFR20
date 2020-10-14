@@ -57,12 +57,11 @@
       </div>
     </nav>
     <div class="container-fluid">
-      <div class="row" id="triagePage">
+      <div class="row" id="newCertsPage">
         <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
-          <form method="post" v-on:submit.prevent="handleNewPtForm">
           <h3>Certification List</h3>
-          <div class="patientCard" v-for="pt in ptList" v-on:click="activePt = pt">
-            <span class="lastName">{{ pt.certTitle }}</span>
+          <div class="patientCard" v-for="ct in ctList" v-on:click="activeCt = ct">
+            <span class="lastName">{{ ct.certName }}</span>
           </div>
 
           <!-- <button v-on:click="yell()">Click Me!</button> -->
@@ -111,8 +110,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/index.app.js"></script>
+    <script src="js/certs.app.js"></script>
   </body>
 </html>
