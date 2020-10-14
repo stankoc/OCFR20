@@ -69,14 +69,14 @@
 
         <div class="col-6">
           <h1>Certification Detail</h1>
-          <form v-on:submit.prevent="handleCertForm">
+          <form v-on:submit.prevent="handleCertsForm">
             <div class="form-group">
               <label for="certTitle">Title</label>
-              <input class="form-control" id="ptName" v-bind:value="certTitle" readonly>
+              <input class="form-control" id="ptName" v-bind:value="activeCertsName" readonly>
               <label for="expDate">Expiration Period</label>
-              <input class="form-control" id="ptName" v-bind:value="expDate" readonly>
+              <input class="form-control" id="ptName" v-bind:value="activeCertsStanExp" readonly>
               <label for="Agency">Agency</label>
-              <input class="form-control" id="ptName" v-bind:value="Agency" readonly>
+              <input class="form-control" id="ptName" v-bind:value="activeCertsAgency" readonly>
               <br>
               <button type="editCertification" class="btn btn-primary">Edit Certification</button>
             </div>

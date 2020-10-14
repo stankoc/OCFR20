@@ -2,12 +2,24 @@ var app = new Vue({
   el: '#newCertsPage',
   data: {
     ctList:[],
-    activeCt: null
+    activeCt: null,
+    certsForm: {}
   },
   computed: {
     activeCertsName() {
+<<<<<<< HEAD
       return this.activeCt ? this.activeCt.certName: ''
     }
+=======
+      return this.activeCt ? this.activeCt.certName : ''
+    },
+    activeCertsAgency() {
+      return this.activeCt ? this.activeCt.certAgency : ''
+    },
+    activeCertsStanExp() {
+      return this.activeCt ? this.activeCt.certStanExp : ''
+    },
+>>>>>>> adb8c7851305af3d607948e58fe8422d20c52a8a
   },
   methods: {
     newCertsData() {
@@ -49,6 +61,16 @@ var app = new Vue({
       console.log(this.triageForm);
 
     }*/
+    handleCertsForm( evt ) {
+      console.log("Form submitted!");
+
+      if (!this.activeCt) {
+        alert("ERROR: No member selected!");
+        return false;
+      }
+      this.certsForm.certID = this.activeCt.certID;
+
+    }
   },
   created() {
     fetch("api/certs/")
