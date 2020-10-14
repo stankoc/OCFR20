@@ -10,12 +10,12 @@ var app = new Vue({
     activeCertsName() {
       return this.activeCt ? this.activeCt.certName : ''
     },
-    activeCertsAgency() {
-      return this.activeCt ? this.activeCt.certAgency : ''
-    },
-    activeCertsStanExp() {
-      return this.activeCt ? this.activeCt.certStanExp : ''
-    },
+    // activeCertsAgency() {
+    //   return this.activeCt ? this.activeCt.certAgency : ''
+    // },
+    // activeCertsStanExp() {
+    //   return this.activeCt ? this.activeCt.certStanExp : ''
+    // },
   },
   methods: {
     newCertsData() {
@@ -69,7 +69,7 @@ var app = new Vue({
     }
   },
   created() {
-    fetch("api/certs/")
+    fetch("api/memberCerts/")
     .then( response => response.json() )
     .then( json => {
       this.ctList = json;

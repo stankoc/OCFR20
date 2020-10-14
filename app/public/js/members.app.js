@@ -3,7 +3,8 @@ var app = new Vue({
   data: {
     mbList:[],
     activeMb: null,
-    memberForm: {}
+    memberForm: {},
+    mctList:[]
   },
     computed: {
     activeMemberFirstName() {
@@ -26,8 +27,13 @@ var app = new Vue({
     },
     activeMemberPosition() {
       return this.activeMb ? this.activeMb.position : ''
-    },
+    }
   },
+    // computed: {
+    //   activeMemberCert() {
+    //     return this.mct ? this.mct : ''
+    //   }
+    // },
   methods: {
     newMemberData() {
       return {
@@ -95,6 +101,16 @@ var app = new Vue({
       console.log(json)}
     );
     //this.newMbForm = this.newMbData();
-  }
+  },
+  // created() {
+  //   fetch("api/memberCerts/")
+  //   .then( response => response.json() )
+  //   .then( json => {
+  //     this.mctList = json;
+
+  //     console.log(json)}
+  //   );
+  //   //this.newCtForm = this.newCtData();
+  // }
 
 })

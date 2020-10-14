@@ -107,12 +107,13 @@
             <button type="deleteMember" class="btn btn-primary">Delete Member</button>
           </form>
         </div>
-        <div class="col">
+        <div id="newMemberPage" class="col">
           <form v-on:submit.prevent="handleMemberForm">
             <h2 class="certHead">Member Certifications</h2>
-            <div class="patientCard" v-for="ct in ctList" v-on:click="activeMb = mb">
+            <div class="patientCard" v-for="mct in mctList" v-on:click="activeMb = mb">
               <span class="lastName">{{ ct.certName }}</span>
             </div>
+            <div>
               <button type="addCert" class="btn btn-primary">Add Certification</button>
             </div>
           </form>
@@ -131,6 +132,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/members.app.js"></script>
-    <script src="js/certs.app.js"></script>
+    <script src="js/membersCerts.app.js"></script>
   </body>
 </html>
