@@ -92,15 +92,15 @@
             <div class="row">
               <div class="form-group col-md-6">
                 <label for="inputEmail">Email</label>
-                <input type="email" class="form-control" id="inputEmail">
+                <input type="email" class="form-control" id="inputEmail" v-bind:value="activeMemberEmail">
               </div>
               <div class="form-group col-md-6">
                 <label for="inputCPhone">Cell Phone</label>
-                <input type="CPhone" class="form-control" id="inputCPhone">
+                <input type="CPhone" class="form-control" id="inputCPhone" v-bind:value="activeMemberCell">
               </div>
               <div class="form-group col-md-6">
                 <label for="inputPosition">Position</label>
-                <input type="position" class="form-control" id="inputPosition">
+                <input type="position" class="form-control" id="inputPosition" v-bind:value="activeMemberPosition">
               </div>
             </div>
             <button type="editMember" class="btn btn-primary">Update Member</button>
@@ -110,10 +110,9 @@
         <div class="col">
           <form v-on:submit.prevent="handleMemberForm">
             <h2 class="certHead">Member Certifications</h2>
-            <div class="form-group">
-              <div class="patientCard" v-for="pt in ptList" v-on:click="activePt = pt">
-                <span class="memberCertTitle">{{ member.certTitle }}</span>
-              </div>
+            <div class="patientCard" v-for="ct in ctList" v-on:click="activeMb = mb">
+              <span class="lastName">{{ ct.certName }}</span>
+            </div>
               <button type="addCert" class="btn btn-primary">Add Certification</button>
             </div>
           </form>
@@ -132,5 +131,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/members.app.js"></script>
+    <script src="js/certs.app.js"></script>
   </body>
 </html>

@@ -6,7 +6,7 @@ var app = new Vue({
   },
   computed: {
     activeCertsName() {
-      return this.activeCt ? this.activeCt.lastName + ', ' + this.activeCt.firstName : ''
+      return this.activeCt ? this.activeCt.certName: ''
     }
   },
   methods: {
