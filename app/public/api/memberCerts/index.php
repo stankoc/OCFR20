@@ -6,8 +6,8 @@ require 'common.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$sql = 'SELECT * FROM Earn_Certification ec, Members m
-        WHERE ec.personID = m.personID';
+$sql = 'SELECT *
+        FROM Earn_Certification';
 $vars = [];
 
 // if (isset($_GET['guid'])) {

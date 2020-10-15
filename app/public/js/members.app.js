@@ -1,41 +1,52 @@
 var app = new Vue({
   el: '#newMemberPage',
   data: {
-    mbList:[],
+    mbList: [],
     activeMb: null,
     memberForm: {},
-    mctList:[],
+    certForm: {},
+    mctList: [],
+    memberCerts: [],
     newMbForm: {}
   },
-    computed: {
-      activeMemberFirstName() {
-        return this.activeMb ? this.activeMb.firstName : ''
+  computed: {
+    activeMemberFirstName() {
+      return this.activeMb ? this.activeMb.firstName : ''
     },
-      activeMemberLastName() {
-        return this.activeMb ? this.activeMb.lastName : ''
+    activeMemberLastName() {
+      return this.activeMb ? this.activeMb.lastName : ''
     },
-      activeMemberRadioNum() {
-        return this.activeMb ? this.activeMb.radioNumber : ''
+    activeMemberRadioNum() {
+      return this.activeMb ? this.activeMb.radioNumber : ''
     },
-      activeMemberStationNum() {
-        return this.activeMb ? this.activeMb.stationNumber : ''
+    activeMemberStationNum() {
+      return this.activeMb ? this.activeMb.stationNumber : ''
     },
-      activeMemberEmail() {
-        return this.activeMb ? this.activeMb.email : ''
+    activeMemberEmail() {
+      return this.activeMb ? this.activeMb.email : ''
     },
-      activeMemberCell() {
-        return this.activeMb ? this.activeMb.cellPhoneNum : ''
+    activeMemberCell() {
+      return this.activeMb ? this.activeMb.cellPhoneNum : ''
     },
-      activeMemberPosition() {
-        return this.activeMb ? this.activeMb.position : ''
+    activeMemberPosition() {
+      return this.activeMb ? this.activeMb.position : ''
+    },
+    activeMemberCerts() {
+      return this.activeMb ? this.activeMb.certName : ''
     }
   },
-    // computed: {
-    //   activeMemberCert() {
-    //     return this.mct ? this.mct : ''
-    //   }
-    // },
+  // computed: {
+  //   activeMemberCert() {
+  //     return this.mct ? this.mct : ''
+  //   }
+  // },
   methods: {
+    selectMemberCert() {
+       if(this.memberform.personID = activeMb.personID){
+         
+       }
+    //select all the certs where memberID is equal to this.memberform.memberID and assign it to membercerts
+  },
     newMemberData() {
       return {
         personID: '',
@@ -58,7 +69,7 @@ var app = new Vue({
         homePhoneNum: ''
       }
     },
-    handleMemberForm( evt ) {
+    handleMemberForm(evt) {
       console.log("Form submitted!");
 
       if (!this.activeMb) {
@@ -69,48 +80,61 @@ var app = new Vue({
 
     },
 
-    handleNewMemberForm( evt ) {
+    handleNewMemberForm(evt) {
       // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
 
       // TODO: Validate the data!
 
-      fetch('api/members/post.php', {
-        method:'POST',
-        body: JSON.stringify(this.newMbForm),
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      })
-      .then( response => response.json() )
-      .then( json => {
-        console.log("Returned from post:", json);
-        // TODO: test a result was returned!
-        this.mbList.push(json[0]);
-        this.newMbForm = this.newMemberData();
-      });
+      fetch("api/members/post.php", {
+          method: 'POST',
+          body: JSON.stringify(this.newMbForm),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then(response => response.json())
+        .then(json => {
+          console.log("Returned from post:", json);
+          // TODO: test a result was returned!
+          this.mbList.push(json[0]);
+          this.newMbForm = this.newMemberData();
+        });
 
       console.log("Creating (POSTing)...!");
       console.log(this.newMbForm);
     },
 
+    // handleMemCertForm(evt) {
+    //   console.log("Form submitted!");
+    //
+    //   if (!this.activeMb) {
+    //     alert("ERROR: No member selected!");
+    //     return false;
+    //   }
+    //   this.memberForm.personID = this.activeMb.personID;
+    // },
+
   },
   created() {
     fetch("api/members/")
-    .then( response => response.json() )
-    .then( json => {
-      this.mbList = json;
+      .then(response => response.json())
+      .then(json => {
+        this.mbList = json;
 
-      console.log(json)}
-    );
-    this.newMbForm = this.newMemberData();
-    // fetch("api/memberCerts/")
-    //   .then( response => response.json() )
-    //   .then( json => {
-    //     this.mctList = json;
+        console.log(json)
+      });
+    // this.newMbForm = this.newMemberData();
 
-    //     console.log(json)}
-    //   );
+    fetch("api/memberCerts/")
+      .then(response => response.json())
+      .then(json => {
+        this.mctList = json;
+
+
+        console.log(json)
+      });
     //this.newMbForm = this.newMbData();
+    //  this.memberForm.personID = this.activeMb.personID;
   }
   // created() {
   //   fetch("api/memberCerts/")
@@ -123,5 +147,5 @@ var app = new Vue({
   //   //this.newCtForm = this.newCtData();
   // }
 
- 
+
 })
