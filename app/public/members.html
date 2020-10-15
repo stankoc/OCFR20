@@ -64,7 +64,7 @@
       <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
         <!-- <form method="post" v-on:submit.prevent="handleNewMemberForm"> -->
         <h3>Member List</h3>
-        <div class="patientCard" v-for="mb in mbList" v-on:click="activeMb = mb">
+        <div class="patientCard" v-for="mb in mbList" v-on:click="activeMb = mb; fetchMemberCert(mb.personID)">
           <span class="lastName">{{ mb.lastName }}</span>,
           <span class="firstName">{{ mb.firstName }}</span>
         </div>
@@ -113,9 +113,10 @@
         <!-- <form v-on:submit.prevent="handleMemberForm"> -->
         <h2 class="certHead">Member Certifications</h2>
         <!-- <div class="patientCard" v-for="mct in mctList" v-bind:data-personID='mct.personID' :data-certID='mct.certID'> -->
-        <div class="patientCard" v-for="mct in mctList" v-for = "mb in mbList" v-on:click = "activeMb = mb" >
+        <div class="patientCard" v-for="mct in mctList">
           <span class="certName">{{ mct.certName }}</span>
         </div>
+        <!-- v-if="activeMb && activeMb.personID == mct.personID" -->
          <!-- v-on:click="activeMb = mb" -->
         <!-- <button type="addCert" class="btn btn-primary">Add Certification</button> -->
         <!-- </form> -->

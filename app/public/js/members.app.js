@@ -41,11 +41,17 @@ var app = new Vue({
   //   }
   // },
   methods: {
-    selectMemberCert() {
-       if(this.memberform.personID = activeMb.personID){
-         
-       }
-    //select all the certs where memberID is equal to this.memberform.memberID and assign it to membercerts
+    fetchMemberCert(personID) {
+      fetch("api/memberCerts/?personID=" + personID)
+        .then(response => response.json())
+        .then(json => {
+          this.mctList = json;
+
+
+          console.log(json)
+        });
+
+    // select all the certs where memberID is equal to this.memberform.memberID and assign it to membercerts
   },
     newMemberData() {
       return {

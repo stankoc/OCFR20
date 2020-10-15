@@ -7,16 +7,17 @@ $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 $sql = 'SELECT *
-        FROM Earn_Certification';
+        FROM Earn_Certification ec, Certification c
+        WHERE ec.certID = c.certID';
 $vars = [];
 
-// if (isset($_GET['guid'])) {
-//   // This is an example of a parameterized query
-//   $sql = 'SELECT * FROM Earn_Certification ec, Members m
-//           WHERE ec.personID = m.personID';
-//   //$vars = [ $_GET['guid'] ];
-//   $vars = [];
-// }
+if (isset($_GET['personID'])) {
+  // This is an example of a parameterized query
+  $sql = 'SELECT *
+          FROM Earn_Certification ec, Certification c
+          WHERE ec.certID = c.certID AND ec.personID = ?';
+  $vars = [ $_GET['personID'] ];
+}
 
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
