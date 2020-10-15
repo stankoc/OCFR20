@@ -19,30 +19,16 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO Person (personID, firstName, lastName, address, city, st, zip, email,
-    dob, startDate, position, gender, stationNumber, isActive, radioNumber, workPhoneNum, cellPhoneNum, homePhoneNum)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+  'INSERT INTO Certification (certID, certAgency, certName, certStanExp)
+  VALUES (?, ?, ?, ?)'
 );
 
 $stmt->execute([
-  $guid,
-  $_POST['firstName'],
-  $_POST['lastName'],
-  $_POST['address'],
-  $_POST['city'],
-  $_POST['st'],
-  $_POST['zip'],
-  $_POST['email'],
-  $_POST['dob'],
-  $_POST['startDate'],
-  $_POST['position'],
-  $_POST['gender'],
-  $_POST['stationNumber'],
-  $_POST['isActive'],
-  $_POST['radioNumber'],
-  $_POST['workPhoneNum'],
-  $_POST['cellPhoneNum'],
-  $_POST['homePhoneNum']
+  // $guid,
+  $_POST['certID'],
+  $_POST['certAgency'],
+  $_POST['certName'],
+  $_POST['certStanExp']
 ]);
 
 // If needed, get auto-generated PK from DB

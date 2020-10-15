@@ -13,7 +13,7 @@
     <title>Home</title>
   </head>
   <body>
-    <div class="row">
+    <div class="row"> 
       <a class="navbar-brand" href="#">Oconee County Fire Rescue</a>
     </div>
     <nav class="navbar navbar-expand-md">
@@ -58,21 +58,25 @@
     </nav>
     <div class="col">
     </div>
-    <div class="col-6">
+    <div class="col-6 container-fluid" id="newCertsPage">
       <h2>Add New Certification</h2>
       <br>
-      <form>
+      <form method="post" v-on:submit.prevent="handleNewCertsForm">
+        <div class="form-group">
+          <label for="certID">Certification ID</label>
+          <input type="certID" v-model="newCertsForm.certID" class="form-control" id="certID">
+        </div>
         <div class="form-group">
           <label for="certAgency">Certification Agency</label>
-          <input type="agency" class="form-control" id="agency">
+          <input type="certAgency" v-model="newCertsForm.certAgency" class="form-control" id="certAgency">
         </div>
         <div class="form-group">
           <label for="certName">Certification Name</label>
-          <input type="cname" class="form-control" id="cname">
+          <input type="certName" v-model="newCertsForm.certName" class="form-control" id="certName">
         </div>
         <div class="form-group">
-          <label for="cexp">Certification Expiration Period</label>
-          <input type="cexp" class="form-control" id="cexp">
+          <label for="certStanExp">Certification Expiration Period</label>
+          <input type="date" v-model="newCertsForm.certStanExp" class="form-control" id="certStanExp">
         </div>
         <button type="submit" class="btn btn-primary">Add Certification</button>
       </form>
@@ -83,6 +87,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/members.app.js"></script>
+    <script src="js/certs.app.js"></script>
   </body>
 </html>

@@ -3,18 +3,18 @@ var app = new Vue({
   data: {
     ctList:[],
     activeCt: null,
-    certsForm: {}
+    newCertsForm: {}
   },
-  computed: {
-    activeCertsName() {
-      return this.activeCt ? this.activeCt.certName : ''
+    computed: {
+      activeCertsName() {
+        return this.activeCt ? this.activeCt.certName : ''
     },
-    activeCertsAgency() {
-      return this.activeCt ? this.activeCt.certAgency : ''
+      activeCertsAgency() {
+        return this.activeCt ? this.activeCt.certAgency : ''
     },
-    activeCertsStanExp() {
-      return this.activeCt ? this.activeCt.certStanExp : ''
-    },
+      activeCertsStanExp() {
+        return this.activeCt ? this.activeCt.certStanExp : ''
+    }
   },
   methods: {
     newCertsData() {
@@ -25,14 +25,14 @@ var app = new Vue({
         certStanExp: ''
       }
     },
-/*   handleNewMemberForm( evt ) {
+    handleNewCertsForm( evt ) {
       // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
 
       // TODO: Validate the data!
 
-      fetch('api/records/post.php', {
+      fetch('api/certs/post.php', {
         method:'POST',
-        body: JSON.stringify(this.newCtForm),
+        body: JSON.stringify(this.newCertsForm),
         headers: {
           "Content-Type": "application/json; charset=utf-8"
         }
@@ -42,20 +42,13 @@ var app = new Vue({
         console.log("Returned from post:", json);
         // TODO: test a result was returned!
         this.ctList.push(json[0]);
+        this.newCertsForm = this.newCertsData();
       });
 
       console.log("Creating (POSTing)...!");
-      console.log(this.newCtForm);
-
-      this.newCtForm = this.newCtData();
+      console.log(this.newCertsForm);
     },
-    handleTriageForm( evt ) {
-      console.log("Form submitted!");
 
-      this.triageForm.ct = this.activeCt;
-      console.log(this.triageForm);
-
-    }*/
     handleCertsForm( evt ) {
       console.log("Form submitted!");
 
@@ -75,7 +68,6 @@ var app = new Vue({
 
       console.log(json)}
     );
-    //this.newCtForm = this.newCtData();
   }
 
 })
