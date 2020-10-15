@@ -59,31 +59,31 @@
     <br>
     <div class="col">
     </div>
-    <div class="col-10">
+    <div id="newMemberPage" class="col-10">
       <h2>Add New Member</h2>
-    <form>
+      <form method="post" v-on:submit.prevent="handleNewMemberForm">
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputFName">First Name</label>
-            <input type="fname" class="form-control" id="inputFName">
+            <label for="firstName">First Name</label>
+            <input type="text" v-model="newMbForm.firstName" class="form-control" id="firstName">
           </div>
           <div class="form-group col-md-6">
-            <label for="inputLName">Last Name</label>
-            <input type="lname" class="form-control" id="inputLName">
+            <label for="lastName">Last Name</label>
+            <input type="text" v-model="newMbForm.lastName" class="form-control" id="lastName">
           </div>
         </div>
         <div class="form-group">
-          <label for="inputAddress">Address</label>
-          <input type="text" class="form-control" id="inputAddress">
+          <label for="address">Address</label>
+          <input type="text" v-model="newMbForm.address" class="form-control" id="address">
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <input type="text" class="form-control" id="inputCity">
+            <label for="city">City</label>
+            <input type="text" v-model="newMbForm.city" class="form-control" id="city">
           </div>
           <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
+            <label for="st">State</label>
+            <select id="st" v-model="newMbForm.st" class="form-control">
               <option selected>Choose...</option>
               <option value="AL">Alabama</option>
             	<option value="AK">Alaska</option>
@@ -139,80 +139,73 @@
             </select>
           </div>
           <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip">
+            <label for="zip">Zip</label>
+            <input type="text" v-model="newMbForm.zip" class="form-control" id="zip">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail">
+            <label for="email">Email</label>
+            <input type="email" v-model="newMbForm.email" class="form-control" id="email">
           </div>
           <div class="form-group col-md-4">
-            <label for="inputDOB">Date of Birth - want to use JS to make date picker</label>
-            <input type="dob" class="form-control" id="inputDOB">
+            <label for="dob">Date of Birth - want to use JS to make date picker</label>
+            <input type="dob" v-model="newMbForm.dob" class="form-control" id="inputDOB">
           </div>
           <div class="form-group col-md-2">
-            <label for="inputGender">Gender</label>
+            <label for="gender">Gender</label>
             <br>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="M" id="M" value="M">
-              <label class="form-check-label" for="M">Male</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="F" id="F" value="F">
-              <label class="form-check-label" for="F">Female</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="O" id="O" value="O">
-              <label class="form-check-label" for="O">Other</label>
-            </div>
+              <select class="form-control" v-model="newMbForm.gender" id="gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other/Unknown</option>
+              </select>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="inputWPhone">Work Phone Number</label>
-            <input type="WPhone" class="form-control" id="inputWPhone">
+            <label for="workPhoneNum">Work Phone Number</label>
+            <input type="WPhone" v-model="newMbForm.workPhoneNum" class="form-control" id="workPhoneNum">
           </div>
           <div class="form-group col-md-4">
-            <label for="inputCPhone">Cell Phone Number</label>
-            <input type="CPhone" class="form-control" id="inputCPhone">
+            <label for="cellPhoneNum">Cell Phone Number</label>
+            <input type="CPhone" v-model="newMbForm.cellPhoneNum" class="form-control" id="cellPhoneNum">
           </div>
           <div class="form-group col-md-4">
-            <label for="inputHPhone">Home Phone Number</label>
-            <input type="HPhone" class="form-control" id="inputHPhone">
+            <label for="homePhoneNum">Home Phone Number</label>
+            <input type="HPhone" v-model="newMbForm.homePhoneNum" class="form-control" id="homePhoneNum">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputSDate">Start Date - want to use JS to make date picker</label>
-            <input type="startdate" class="form-control" id="inputSDate">
+            <label for="startDate">Start Date - want to use JS to make date picker</label>
+            <input type="startdate" v-model="newMbForm.startDate" class="form-control" id="startDate">
           </div>
           <div class="form-group col-md-6">
-            <label for="inputPosition">Position</label>
-            <input type="position" class="form-control" id="inputPosition">
+            <label for="position">Position</label>
+            <input type="position" v-model="newMbForm.position" class="form-control" id="position">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputRNum">Radio Number</label>
-            <input type="rnum" class="form-control" id="inputRNum">
+            <label for="radioNumber">Radio Number</label>
+            <input type="rnum" v-model="newMbForm.radioNumber" class="form-control" id="radioNumber">
           </div>
           <div class="form-group col-md-6">
-            <label for="inputSNum">Station Number</label>
-            <input type="snum" class="form-control" id="inputSNum">
+            <label for="stationNumber">Station Number</label>
+            <input type="snum" v-model="newMbForm.stationNumber" class="form-control" id="stationNumber">
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Add Member</button>
-    </form>
+      </form>
     </div>
     <div class="col">
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/index.app.js"></script>
+    <script src="js/members.app.js"></script>
   </body>
 </html>

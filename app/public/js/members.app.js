@@ -59,7 +59,7 @@ var app = new Vue({
     },
     pullMemberCertifications( evt ) {
 
-    }
+    },
 /*   handleNewMemberForm( evt ) {
       // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
 
@@ -104,13 +104,13 @@ var app = new Vue({
       console.log(json)}
     );
 
-    fetch("api/memberCerts/")
-      .then( response => response.json() )
-      .then( json => {
-        this.mctList = json;
+    // fetch("api/memberCerts/")
+    //   .then( response => response.json() )
+    //   .then( json => {
+    //     this.mctList = json;
 
-        console.log(json)}
-      );
+    //     console.log(json)}
+    //   );
     //this.newMbForm = this.newMbData();
   }
   // created() {
@@ -124,4 +124,4 @@ var app = new Vue({
   //   //this.newCtForm = this.newCtData();
   // }
 
-})
+ })
