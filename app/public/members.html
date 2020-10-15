@@ -62,7 +62,7 @@
         <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
           <!-- <form method="post" v-on:submit.prevent="handleNewMemberForm"> -->
           <h3>Member List</h3>
-          <div class="patientCard" v-for="mb in mbList" v-on:click="activeMb = mb; pullMemberCertifications">
+          <div class="patientCard" v-for="mb in mbList" v-on:click="activeMb = mb">
             <span class="lastName">{{ mb.lastName }}</span>,
             <span class="firstName">{{ mb.firstName }}</span>
           </div>
@@ -108,15 +108,15 @@
           </form>
         </div>
         <div class="col">
-          <form v-on:submit.prevent="handleMemberForm">
+          <!-- <form v-on:submit.prevent="handleMemberForm">
             <h2 class="certHead">Member Certifications</h2>
             <div class="patientCard" v-for="ct in ctList" v-on:click="activeMb = mb">
-              <!-- <span class="lastName">{{ ct.certName }}</span> -->
+              <span class="lastName">{{ ct.certName }}</span>
               <input type="cert" class="form-control" id="inputCert" v-bind:value="activeMemberCertification">
             </div>
               <button type="addCert" class="btn btn-primary">Add Certification</button>
             </div>
-          </form>
+          </form> -->
         </div>
       </div>
     </div>

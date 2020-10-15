@@ -67,8 +67,8 @@ var app = new Vue({
       }
       this.memberForm.personID = this.activeMb.personID;
 
-      }
     },
+
     handleNewMemberForm( evt ) {
       // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
 
@@ -93,7 +93,7 @@ var app = new Vue({
       console.log(this.newMbForm);
     },
 
-
+  },
   created() {
     fetch("api/members/")
     .then( response => response.json() )
@@ -123,4 +123,5 @@ var app = new Vue({
   //   //this.newCtForm = this.newCtData();
   // }
 
- })
+ 
+})
