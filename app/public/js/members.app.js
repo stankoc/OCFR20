@@ -4,29 +4,30 @@ var app = new Vue({
     mbList:[],
     activeMb: null,
     memberForm: {},
-    mctList:[]
+    mctList:[],
+    newMbForm: {}
   },
     computed: {
-    activeMemberFirstName() {
-      return this.activeMb ? this.activeMb.firstName : ''
+      activeMemberFirstName() {
+        return this.activeMb ? this.activeMb.firstName : ''
     },
-    activeMemberLastName() {
-      return this.activeMb ? this.activeMb.lastName : ''
+      activeMemberLastName() {
+        return this.activeMb ? this.activeMb.lastName : ''
     },
-    activeMemberRadioNum() {
-      return this.activeMb ? this.activeMb.radioNumber : ''
+      activeMemberRadioNum() {
+        return this.activeMb ? this.activeMb.radioNumber : ''
     },
-    activeMemberStationNum() {
-      return this.activeMb ? this.activeMb.stationNumber : ''
+      activeMemberStationNum() {
+        return this.activeMb ? this.activeMb.stationNumber : ''
     },
-    activeMemberEmail() {
-      return this.activeMb ? this.activeMb.email : ''
+      activeMemberEmail() {
+        return this.activeMb ? this.activeMb.email : ''
     },
-    activeMemberCell() {
-      return this.activeMb ? this.activeMb.cellPhoneNum : ''
+      activeMemberCell() {
+        return this.activeMb ? this.activeMb.cellPhoneNum : ''
     },
-    activeMemberPosition() {
-      return this.activeMb ? this.activeMb.position : ''
+      activeMemberPosition() {
+        return this.activeMb ? this.activeMb.position : ''
     }
   },
     // computed: {
@@ -57,15 +58,23 @@ var app = new Vue({
         homePhoneNum: ''
       }
     },
-    pullMemberCertifications( evt ) {
+    handleMemberForm( evt ) {
+      console.log("Form submitted!");
 
+      if (!this.activeMb) {
+        alert("ERROR: No member selected!");
+        return false;
+      }
+      this.memberForm.personID = this.activeMb.personID;
+
+      }
     },
-/*   handleNewMemberForm( evt ) {
+    handleNewMemberForm( evt ) {
       // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
 
       // TODO: Validate the data!
 
-      fetch('api/records/post.php', {
+      fetch('api/members/post.php', {
         method:'POST',
         body: JSON.stringify(this.newMbForm),
         headers: {
@@ -77,24 +86,14 @@ var app = new Vue({
         console.log("Returned from post:", json);
         // TODO: test a result was returned!
         this.mbList.push(json[0]);
+        this.newMbForm = this.newMemberData();
       });
 
       console.log("Creating (POSTing)...!");
       console.log(this.newMbForm);
+    },
 
-      this.newMbForm = this.newMbData();
-    }, */
-    handleMemberForm( evt ) {
-      console.log("Form submitted!");
 
-      if (!this.activeMb) {
-        alert("ERROR: No member selected!");
-        return false;
-      }
-      this.memberForm.personID = this.activeMb.personID;
-
-    }
-  },
   created() {
     fetch("api/members/")
     .then( response => response.json() )
@@ -103,7 +102,7 @@ var app = new Vue({
 
       console.log(json)}
     );
-
+    this.newMbForm = this.newMemberData();
     // fetch("api/memberCerts/")
     //   .then( response => response.json() )
     //   .then( json => {
