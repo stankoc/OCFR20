@@ -6,7 +6,9 @@ require 'common.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$sql = 'SELECT * FROM Certification';
+$sql = 'SELECT *
+        FROM Certification
+        ORDER BY certName asc';
 $vars = [];
 
 if (isset($_GET['guid'])) {

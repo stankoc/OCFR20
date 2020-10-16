@@ -1,91 +1,94 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <!-- my custom CSS goes here -->
-    <link rel="stylesheet" href="css/styles.css">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Home</title>
-  </head>
-  <body>
-    <div class="row">
-      <a class="navbar-brand" href="#">Oconee County Fire Rescue</a>
-    </div>
-    <nav class="navbar navbar-expand-md">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Members
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="members.html">View Members</a>
-              <a class="dropdown-item" href="add_members.html">Add Members</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Certifications
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="edit_certs.html">View Certifications</a>
-              <a class="dropdown-item" href="add_certs.html">Add Certifications</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Reports
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="mem_stations.html">Members by Station</a>
-              <a class="dropdown-item" href="mem_radio.html">Members by Radio</a>
-              <a class="dropdown-item" href="mem_exp_certs.html">Members with Expired Certifications</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="container-fluid">
-      <div class="row" id="newCertsPage">
-        <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
-          <h3>Certification List</h3>
-          <div class="patientCard" v-for="ct in ctList" v-on:click="activeCt = ct">
-            <span class="lastName">{{ ct.certName }}</span>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- my custom CSS goes here -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <title>Home</title>
+</head>
+
+<body>
+  <div class="row">
+    <a class="navbar-brand" href="#">Oconee County Fire Rescue</a>
+  </div>
+  <nav class="navbar navbar-expand-md">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Members
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="members.html">View Members</a>
+            <a class="dropdown-item" href="add_members.html">Add Members</a>
           </div>
-
-          <!-- <button v-on:click="yell()">Click Me!</button> -->
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Certifications
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="edit_certs.html">View Certifications</a>
+            <a class="dropdown-item" href="add_certs.html">Add Certifications</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Reports
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="mem_stations.html">Members by Station</a>
+            <a class="dropdown-item" href="mem_radio.html">Members by Radio</a>
+            <a class="dropdown-item" href="mem_exp_certs.html">Members with Expired Certifications</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row" id="newCertsPage">
+      <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
+        <h3>Certification List</h3>
+        <div class="patientCard" v-for="ct in ctList" v-on:click="activeCt = ct; fetchCertMember(ct.certID)">
+          <span class="lastName">{{ ct.certName }}</span>
         </div>
 
-        <div class="col-6">
-          <h1>Certification Detail</h1>
-          <form v-on:submit.prevent="handleCertsForm">
-            <div class="form-group">
-              <label for="certTitle">Title</label>
-              <input class="form-control" id="ptName" v-bind:value="activeCertsName" readonly>
-              <label for="expDate">Expiration Period</label>
-              <input class="form-control" id="ptName" v-bind:value="activeCertsStanExp" readonly>
-              <label for="Agency">Agency</label>
-              <input class="form-control" id="ptName" v-bind:value="activeCertsAgency" readonly>
-              <br>
-              <button type="editCertification" class="btn btn-primary">Edit Certification</button>
-            </div>
-          </form>
-          <h3 class="certHead">Members With Certification</h3>
+        <!-- <button v-on:click="yell()">Click Me!</button> -->
+      </div>
+
+      <div class="col-6">
+        <h1>Certification Detail</h1>
+        <form v-on:submit.prevent="handleCertsForm">
+          <div class="form-group">
+            <label for="certTitle">Title</label>
+            <input class="form-control" id="ptName" v-bind:value="activeCertsName" readonly>
+            <label for="expDate">Expiration Period</label>
+            <input class="form-control" id="ptName" v-bind:value="activeCertsStanExp" readonly>
+            <label for="Agency">Agency</label>
+            <input class="form-control" id="ptName" v-bind:value="activeCertsAgency" readonly>
+            <br>
+            <button type="editCertification" class="btn btn-primary">Edit Certification</button>
+          </div>
+        </form>
+      </div>
+      <!-- <h3 class="certHead">Members With Certification</h3>
           <form v-on:submit.prevent="handleMemCertForm">
             <div class="form-check">
               <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-              <label class="form-check-label" for="activePt"> <!-- Need to fix values in all of this -->
+              <label class="form-check-label" for="activePt"> - Need to fix values in all of this
                 <div class="patientCard" v-for="pt in ptList" v-on:click="activePt = pt">
                   <span value="lastName" class="lastName">{{ pt.lastName }}</span>,
                   <span value="firstName" clas="firstName">{{ pt.firstName }}</span>
@@ -95,23 +98,37 @@
               <br>
             </div>
               <button type="deleteMember" class="btn btn-primary">Delete Certification For Member</button>
-          </form>
+          </form> -->
+
+      <div class="col">
+        <!-- <form v-on:submit.prevent="handleMemberForm"> -->
+        <h2 class="certHead">Members with Certification</h2>
+        <!-- <div class="patientCard" v-for="mct in mctList" v-bind:data-personID='mct.personID' :data-certID='mct.certID'> -->
+        <div class="patientCard" v-for="ctm in ctmList" v-if="activeCt && activeCt.certID == ctm.certID">
+          <span class="lastName">{{ ctm.lastName }}</span>,
+          <span class = "firstName">{{ ctm.firstName}}</span>
         </div>
-        <div class="col">
-        </div>
+        <!-- v-if="activeMb && activeMb.personID == mct.personID" -->
+        <!-- v-on:click="activeMb = mb" -->
+        <!-- <button type="addCert" class="btn btn-primary">Add Certification</button> -->
+        <!-- </form> -->
       </div>
+
+
     </div>
-    <!-- END content -->
+  </div>
+  <!-- END content -->
 
-    <!-- Footer? Insert here -->
+  <!-- Footer? Insert here -->
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/certs.app.js"></script>
-  </body>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/certs.app.js"></script>
+</body>
+
 </html>

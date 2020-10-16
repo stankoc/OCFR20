@@ -3,6 +3,9 @@ var app = new Vue({
   data: {
     ctList:[],
     activeCt: null,
+    certForm: {},
+    ctmList:[],
+    certMembers: [],
     newCertsForm: {}
   },
     computed: {
@@ -14,9 +17,25 @@ var app = new Vue({
     },
       activeCertsStanExp() {
         return this.activeCt ? this.activeCt.certStanExp : ''
+    },
+    activeCertMembers() {
+      return this.activeCt ? this.activeCt.lastName : ''
     }
   },
   methods: {
+    // fetchCertMember(certID) {
+    //   fetch("api/certMembers/?certID=" + certID)
+    //     .then(response => response.json())
+    //     .then(json => {
+    //       this.ctmList = json;
+    //
+    //
+    //       console.log(json)
+    //     });
+    // 
+    // // select all the certs where memberID is equal to this.memberform.memberID and assign it to membercerts
+    // },
+
     newCertsData() {
       return {
         certID: '',
@@ -25,6 +44,18 @@ var app = new Vue({
         certStanExp: ''
       }
     },
+
+    handleCertForm(evt) {
+      console.log("Form submitted!");
+
+      if (!this.activeCt) {
+        alert("ERROR: No member selected!");
+        return false;
+      }
+      this.certForm.certID = this.activeCt.certID;
+
+    },
+
     handleNewCertsForm( evt ) {
       // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
 
@@ -49,16 +80,6 @@ var app = new Vue({
       console.log(this.newCertsForm);
     },
 
-    handleCertsForm( evt ) {
-      console.log("Form submitted!");
-
-      if (!this.activeCt) {
-        alert("ERROR: No member selected!");
-        return false;
-      }
-      this.certsForm.certID = this.activeCt.certID;
-
-    }
   },
   created() {
     fetch("api/certs/")
@@ -66,8 +87,16 @@ var app = new Vue({
     .then( json => {
       this.ctList = json;
 
-      console.log(json)}
-    );
+      console.log(json)
+    });
+
+    fetch("api/certMembers/")
+      .then(response => response.json())
+      .then(json=> {
+        this.ctmList = json;
+
+        console.log(json)
+      });
   }
 
 })
