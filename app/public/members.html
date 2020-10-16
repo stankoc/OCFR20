@@ -113,10 +113,10 @@
         <!-- <form v-on:submit.prevent="handleMemberForm"> -->
         <h2 class="certHead">Member Certifications</h2>
         <!-- <div class="patientCard" v-for="mct in mctList" v-bind:data-personID='mct.personID' :data-certID='mct.certID'> -->
-        <div class="patientCard" v-for="mct in mctList">
+        <div class="patientCard" v-for="mct in mctList" v-if="activeMb && activeMb.personID == mct.personID">
           <span class="certName">{{ mct.certName }}</span>
         </div>
-        <!-- v-if="activeMb && activeMb.personID == mct.personID" -->
+
          <!-- v-on:click="activeMb = mb" -->
         <!-- <button type="addCert" class="btn btn-primary">Add Certification</button> -->
         <!-- </form> -->
