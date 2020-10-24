@@ -23,18 +23,18 @@ var app = new Vue({
     }
   },
   methods: {
-    // fetchCertMember(certID) {
-    //   fetch("api/certMembers/?certID=" + certID)
-    //     .then(response => response.json())
-    //     .then(json => {
-    //       this.ctmList = json;
-    //
-    //
-    //       console.log(json)
-    //     });
-    // 
-    // // select all the certs where memberID is equal to this.memberform.memberID and assign it to membercerts
-    // },
+    fetchCertMember(certID) {
+      fetch("api/certMembers/?certID=" + certID)
+        .then(response => response.json())
+        .then(json => {
+          this.ctmList = json;
+    
+    
+          console.log(json)
+        });
+    
+    // select all the certs where memberID is equal to this.memberform.memberID and assign it to membercerts
+    },
 
     newCertsData() {
       return {
