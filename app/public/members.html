@@ -74,7 +74,7 @@
 
       <div class="col-6">
         <h1>Member</h1>
-        <form v-on:submit.prevent="handleMemberForm">
+        <form v-on:submit.prevent="updateMember">
           <div class="form-group">
             <label for="firstName">First Name</label>
             <input id="firstName" class="form-control" v-bind:value="activeMemberFirstName" readonly>
@@ -105,7 +105,7 @@
               <input type="position" class="form-control" id="inputPosition" v-bind:value="activeMemberPosition">
             </div>
           </div>
-          <button type="editMember" class="btn btn-primary">Update Member</button>
+          <button type="submit" class="btn btn-primary">Update Member</button>
           <button type="deleteMember" class="btn btn-primary">Delete Member</button>
         </form>
       </div>

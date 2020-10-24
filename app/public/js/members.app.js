@@ -41,18 +41,18 @@ var app = new Vue({
   //   }
   // },
   methods: {
-  //   fetchMemberCert(personID) {
-  //     fetch("api/memberCerts/?personID=" + personID)
-  //       .then(response => response.json())
-  //       .then(json => {
-  //         this.mctList = json;
-  //
-  //
-  //         console.log(json)
-  //       });
-  //
-  //   // select all the certs where memberID is equal to this.memberform.memberID and assign it to membercerts
-  // },
+    fetchMemberCert(personID) {
+      fetch("api/memberCerts/?personID=" + personID)
+        .then(response => response.json())
+        .then(json => {
+          this.mctList = json;
+  
+  
+          console.log(json)
+        });
+  
+    // select all the certs where memberID is equal to this.memberform.memberID and assign it to membercerts
+  },
     newMemberData() {
       return {
         personID: '',
@@ -84,6 +84,26 @@ var app = new Vue({
       }
       this.memberForm.personID = this.activeMb.personID;
 
+    },
+    updateMember(evt) {
+
+      fetch("api/members/update.php", {
+        method: 'POST',
+        body: JSON.stringify(this.newMbForm),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then(response => response.json())
+      .then(json => {
+        console.log("Returned from post:", json);
+        // TODO: test a result was returned!
+        this.mbList.push(json[0]);
+        this.newMbForm = this.newMemberData();
+      });
+
+    console.log("Creating (POSTing)...!");
+    console.log(this.newMbForm);
     },
 
     handleNewMemberForm(evt) {
@@ -129,7 +149,7 @@ var app = new Vue({
 
         console.log(json)
       });
-    // this.newMbForm = this.newMemberData();
+     this.newMbForm = this.newMemberData();
 
     fetch("api/memberCerts/")
       .then(response => response.json())
@@ -139,8 +159,8 @@ var app = new Vue({
 
         console.log(json)
       });
-    //this.newMbForm = this.newMbData();
-    //  this.memberForm.personID = this.activeMb.personID;
+    this.newMbForm = this.newMemberData();
+    // this.memberForm.personID = this.activeMb.personID;
   }
   // created() {
   //   fetch("api/memberCerts/")
