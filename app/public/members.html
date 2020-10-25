@@ -74,14 +74,14 @@
 
       <div class="col-6">
         <h1>Member</h1>
-        <form v-on:submit.prevent="updateMember">
+        <form v-on:submit.prevent="deleteMember">
           <div class="form-group">
             <label for="firstName">First Name</label>
-            <input id="firstName" class="form-control" v-bind:value="activeMemberFirstName" readonly>
+            <input id="firstName" class="form-control" v-bind:value="activeMemberFirstName">
           </div>
           <div class="form-group">
             <label for="lastName">Last Name</label>
-            <input id="lastName" class="form-control" v-bind:value="activeMemberLastName" readonly>
+            <input id="lastName" class="form-control" v-bind:value="activeMemberLastName">
           </div>
           <div class="form-group">
             <label for="radioNumber">Radio Number</label>

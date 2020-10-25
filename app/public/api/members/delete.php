@@ -21,36 +21,13 @@ $db = DbConnection::getConnection();
 
 
 $stmt = $db->prepare(
-  'UPDATE Person SET firstName = ?, lastName = ?, address = ?, city = ?, st = ?, zip = ?, email = ?, dob = ?, startDate = ?, position = ?, gender = ?, stationNumber = ?, isActive = ?, radioNumber = ?, workPhoneNum = ?, cellPhoneNum = ?, homePhoneNum = ?
+  'DELETE FROM Person 
   WHERE personID = ?;'
-  );
+);
 
-
-$stmt->execute([
-  $_POST['personID'],
-  $_POST['firstName'],
-  $_POST['lastName'],
-  $_POST['address'],
-  $_POST['city'],
-  $_POST['st'],
-  $_POST['zip'],
-  $_POST['email'],
-  $_POST['dob'],
-  $_POST['startDate'],
-  $_POST['position'],
-  $_POST['gender'],
-  $_POST['stationNumber'],
-  $_POST['isActive'],
-  $_POST['radioNumber'],
-  $_POST['workPhoneNum'],
-  $_POST['cellPhoneNum'],
-  $_POST['homePhoneNum']
-]);
-    
-// 'UPDATE Person SET firstName = ?, lastName = ?, address = ?, city = ?, st = ?, zip = ?, email = ?, dob = ?, startDate = ?, position = ?, gender = ?, stationNumber = ?, isActive = ?, radioNumber = ?, workPhoneNum = ?, cellPhoneNum = ?, homePhoneNum = ?
-//   WHERE personID = ?;'
-
-
+  $stmt->execute([
+    $_POST['personID']
+  ]);
 // $stmt->execute([
 
 // ]);
@@ -73,5 +50,10 @@ $stmt->execute([
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
-// header('HTTP/1.1 303 See Other');
-// header('Location: ../members/?guid=' . $guid);
+header('HTTP/1.1 303 See Other');
+header('Location: ../members/?guid=' . $guid);
+
+
+
+// 'DELETE FROM Person
+//             WHERE personID = :(?)'

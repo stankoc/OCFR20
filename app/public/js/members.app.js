@@ -85,25 +85,54 @@ var app = new Vue({
       this.memberForm.personID = this.activeMb.personID;
 
     },
-    updateMember(evt) {
+    deleteMember(evt) {
 
-      fetch("api/members/update.php", {
+      fetch("api/members/delete.php", {
         method: 'POST',
-        body: JSON.stringify(this.newMbForm),
+        body: JSON.stringify(this.activeMb),
         headers: {
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-      .then(response => response.json())
-      .then(json => {
-        console.log("Returned from post:", json);
-        // TODO: test a result was returned!
-        this.mbList.push(json[0]);
-        this.newMbForm = this.newMemberData();
-      });
+        .then(response => response.json())
+
+      fetch("api/members/")
+        .then(response => response.json())
+        .then(json => {
+          this.mbList = json;
+  
+          console.log(json)
+        });
+       this.newMbForm = this.newMemberData();
+      // .then(json => {
+      //   console.log("Returned from post:", json);
+      //   // TODO: test a result was returned!
+      //   this.mbList.push(json[0]);
+      //   this.newMbForm = this.newMemberData();
+      // });
 
     console.log("Creating (POSTing)...!");
-    console.log(this.newMbForm);
+    console.log(this.activeMb);
+    },
+    updateMember(evt) {
+
+      fetch("api/members/update.php", {
+        method: 'POST',
+        body: JSON.stringify(this.activeMb),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+        .then(response => response.json())
+        .then(json => {
+          console.log("Returned from post:", json);
+          // TODO: test a result was returned!
+          this.mbList.push(json[0]);
+          this.newMbForm = this.newMemberData();
+        });
+
+    console.log("Creating (POSTing)...!");
+    console.log(this.activeMb);
     },
 
     handleNewMemberForm(evt) {
