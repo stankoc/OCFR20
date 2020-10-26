@@ -9,32 +9,32 @@ var app = new Vue({
     memberCerts: [],
     newMbForm: {}
   },
-  computed: {
-    activeMemberFirstName() {
-      return this.activeMb ? this.activeMb.firstName : ''
-    },
-    activeMemberLastName() {
-      return this.activeMb ? this.activeMb.lastName : ''
-    },
-    activeMemberRadioNum() {
-      return this.activeMb ? this.activeMb.radioNumber : ''
-    },
-    activeMemberStationNum() {
-      return this.activeMb ? this.activeMb.stationNumber : ''
-    },
-    activeMemberEmail() {
-      return this.activeMb ? this.activeMb.email : ''
-    },
-    activeMemberCell() {
-      return this.activeMb ? this.activeMb.cellPhoneNum : ''
-    },
-    activeMemberPosition() {
-      return this.activeMb ? this.activeMb.position : ''
-    },
-    activeMemberCerts() {
-      return this.activeMb ? this.activeMb.certName : ''
-    }
-  },
+  // computed: {
+  //   activeMemberFirstName() {
+  //     return this.activeMb ? this.activeMb.firstName : ''
+  //   },
+  //   activeMemberLastName() {
+  //     return this.activeMb ? this.activeMb.lastName : ''
+  //   },
+  //   activeMemberRadioNum() {
+  //     return this.activeMb ? this.activeMb.radioNumber : ''
+  //   },
+  //   activeMemberStationNum() {
+  //     return this.activeMb ? this.activeMb.stationNumber : ''
+  //   },
+  //   activeMemberEmail() {
+  //     return this.activeMb ? this.activeMb.email : ''
+  //   },
+  //   activeMemberCell() {
+  //     return this.activeMb ? this.activeMb.cellPhoneNum : ''
+  //   },
+  //   activeMemberPosition() {
+  //     return this.activeMb ? this.activeMb.position : ''
+  //   },
+  //   activeMemberCerts() {
+  //     return this.activeMb ? this.activeMb.certName : ''
+  //   }
+  // },
   // computed: {
   //   activeMemberCert() {
   //     return this.mct ? this.mct : ''
