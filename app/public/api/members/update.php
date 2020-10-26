@@ -27,7 +27,6 @@ $stmt = $db->prepare(
 
 
 $stmt->execute([
-  $_POST['personID'],
   $_POST['firstName'],
   $_POST['lastName'],
   $_POST['address'],
@@ -44,7 +43,8 @@ $stmt->execute([
   $_POST['radioNumber'],
   $_POST['workPhoneNum'],
   $_POST['cellPhoneNum'],
-  $_POST['homePhoneNum']
+  $_POST['homePhoneNum'],
+  $_POST['personID']
 ]);
     
 // 'UPDATE Person SET firstName = ?, lastName = ?, address = ?, city = ?, st = ?, zip = ?, email = ?, dob = ?, startDate = ?, position = ?, gender = ?, stationNumber = ?, isActive = ?, radioNumber = ?, workPhoneNum = ?, cellPhoneNum = ?, homePhoneNum = ?
@@ -73,5 +73,5 @@ $stmt->execute([
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
-// header('HTTP/1.1 303 See Other');
-// header('Location: ../members/?guid=' . $guid);
+header('HTTP/1.1 303 See Other');
+header('Location: ../members/?guid=' . $guid);

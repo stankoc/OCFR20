@@ -127,10 +127,11 @@ var app = new Vue({
         .then(json => {
           console.log("Returned from post:", json);
           // TODO: test a result was returned!
-          this.mbList.push(json[0]);
-          this.newMbForm = this.newMemberData();
+          this.mbList.push(json[0]);  
+          this.activeMb = this.newMemberData();
         });
 
+          
     console.log("Creating (POSTing)...!");
     console.log(this.activeMb);
     },
