@@ -74,8 +74,8 @@
 
       <div class="col-6">
         <h1>Member</h1>
-        <form v-on:click = "updateMember ; deleteMember" v-if="activeMb">
-        <!-- <form v-on:submit.prevent="updateMember" v-on:submit.prevent="deleteMember" v-if="activeMb"> -->
+        <form v-on:click="updateMember ; deleteMember" v-if="activeMb">
+          <!-- <form v-on:submit.prevent="updateMember" v-on:submit.prevent="deleteMember" v-if="activeMb"> -->
           <div class="form-group">
             <label for="firstName">First Name</label>
             <input id="firstName" class="form-control" v-model="activeMb.firstName">
@@ -103,7 +103,7 @@
             </div>
             <div class="form-group col-md-6">
               <label for="inputPosition">Position</label>
-              <input type="position" class="form-control" id="inputPosition"  v-model="activeMb.position">
+              <input type="position" class="form-control" id="inputPosition" v-model="activeMb.position">
             </div>
           </div>
           <button type="submit" @click="updateMember" class="btn btn-primary">Update Member</button>
@@ -120,7 +120,7 @@
         </div>
         <br>
         <div v-if="ctList.length">
-          <form v-on:click="handleNewMemberCert">
+          <form v-on:submit.prevent="handleNewMemberCert">
             <select v-model="newMemberCert.certID">
               <option v-bind:value="c.certID" v-for="c in ctList">{{ c.certName }}</option>
             </select>
@@ -130,10 +130,10 @@
               <input type="text" v-model="newMemberCert.certEarnDate" class="form-control" id="certEarnDate">
             </div>
             <!-- <button type="submit" @submit.prevent="handleNewMemberCert" class="btn btn-primary">Add Member Certification</button> -->
-            <button type="submit" class="btn btn-primary">Add Member Certification</button>
+            <button type="submit" @submit.prevent = "handleNewMemberCert" class="btn btn-primary">Add Member Certification</button>
           </form>
         </div>
-         <!-- v-on:click="activeMb = mb" -->
+        <!-- v-on:click="activeMb = mb" -->
         <!-- <button type="addCert" class="btn btn-primary">Add Certification</button> -->
         <!-- </form> -->
       </div>

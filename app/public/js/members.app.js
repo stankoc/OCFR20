@@ -8,7 +8,7 @@ var app = new Vue({
     mctList: [],
     memberCerts: [],
     newMbForm: {},
-    ctList:[],
+    ctList: [],
     newMemberCert: {}
   },
   // computed: {
@@ -53,8 +53,8 @@ var app = new Vue({
           console.log(json)
         });
 
-    // select all the certs where memberID is equal to this.memberform.memberID and assign it to membercerts
-  },
+      // select all the certs where memberID is equal to this.memberform.memberID and assign it to membercerts
+    },
     newMemberData() {
       return {
         personID: '',
@@ -98,12 +98,12 @@ var app = new Vue({
     deleteMember(evt) {
 
       fetch("api/members/delete.php", {
-        method: 'POST',
-        body: JSON.stringify(this.activeMb),
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      })
+          method: 'POST',
+          body: JSON.stringify(this.activeMb),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
         .then(response => response.json())
 
       fetch("api/members/")
@@ -113,7 +113,7 @@ var app = new Vue({
 
           console.log(json)
         });
-       this.newMbForm = this.newMemberData();
+      this.newMbForm = this.newMemberData();
       // .then(json => {
       //   console.log("Returned from post:", json);
       //   // TODO: test a result was returned!
@@ -121,18 +121,18 @@ var app = new Vue({
       //   this.newMbForm = this.newMemberData();
       // });
 
-    console.log("Creating (POSTing)...!");
-    console.log(this.activeMb);
+      console.log("Creating (POSTing)...!");
+      console.log(this.activeMb);
     },
     updateMember(evt) {
 
       fetch("api/members/update.php", {
-        method: 'POST',
-        body: JSON.stringify(this.activeMb),
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      })
+          method: 'POST',
+          body: JSON.stringify(this.activeMb),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
         .then(response => response.json())
         .then(json => {
           console.log("Returned from post:", json);
@@ -142,8 +142,8 @@ var app = new Vue({
         });
 
 
-    console.log("Creating (POSTing)...!");
-    console.log(this.activeMb);
+      console.log("Creating (POSTing)...!");
+      console.log(this.activeMb);
     },
 
     handleNewMemberForm(evt) {
@@ -186,13 +186,13 @@ var app = new Vue({
         .then(json => {
           console.log("Returned from post:", json);
           // TODO: test a result was returned!
-          this.mctList.push(json[0]);
+          this.mctList = json;
           this.newMemberCert = this.newMemberCertData();
         });
 
       console.log("Creating (POSTing)...!");
       console.log(this.newMemberCert);
-    },
+    }
 
     // handleMemCertForm(evt) {
     //   console.log("Form submitted!");
@@ -213,7 +213,7 @@ var app = new Vue({
 
         console.log(json)
       });
-     this.newMbForm = this.newMemberData();
+    this.newMbForm = this.newMemberData();
 
     fetch("api/memberCerts/")
       .then(response => response.json())
@@ -225,12 +225,12 @@ var app = new Vue({
       });
 
     fetch("api/certs/")
-    .then( response => response.json() )
-    .then( json => {
-      this.ctList = json;
+      .then(response => response.json())
+      .then(json => {
+        this.ctList = json;
 
-      console.log(json)
-    });
+        console.log(json)
+      });
     this.newMemberCert = this.newMemberCertData();
     // this.memberForm.personID = this.activeMb.personID;
   }
