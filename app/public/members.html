@@ -117,12 +117,19 @@
           <span class="certName">{{ mct.certName }}</span>
           <!-- put cert earned date -->
         </div>
+        <br>
         <div v-if="ctList.length">
-          <form>
+          <form v-on:submit.prevent="handleNewMemberCert">
             <select v-model="newMemberCert.certID">
               <option v-bind:value="c.certID" v-for="c in ctList">{{ c.certName }}</option>
             </select>
-
+            <br>
+            <div class="form-group col-md-6">
+              <label for="certEarnDate">Certification Earn Date</label>
+              <input type="text" v-model="newMemberCert.certEarnDate" class="form-control" id="certEarnDate">
+            </div>
+            <!-- <button type="submit" @submit.prevent="handleNewMemberCert" class="btn btn-primary">Add Member Certification</button> -->
+            <button type="submit" class="btn btn-primary">Add Member Certification</button>
           </form>
         </div>
          <!-- v-on:click="activeMb = mb" -->

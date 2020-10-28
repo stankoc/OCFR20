@@ -8,7 +8,8 @@ var app = new Vue({
     mctList: [],
     memberCerts: [],
     newMbForm: {},
-    ctList:[]
+    ctList:[],
+    newMemberCert: {}
   },
   // computed: {
   //   activeMemberFirstName() {
@@ -47,11 +48,11 @@ var app = new Vue({
         .then(response => response.json())
         .then(json => {
           this.mctList = json;
-  
-  
+
+
           console.log(json)
         });
-  
+
     // select all the certs where memberID is equal to this.memberform.memberID and assign it to membercerts
   },
     newMemberData() {
@@ -109,7 +110,7 @@ var app = new Vue({
         .then(response => response.json())
         .then(json => {
           this.mbList = json;
-  
+
           console.log(json)
         });
        this.newMbForm = this.newMemberData();
@@ -136,11 +137,11 @@ var app = new Vue({
         .then(json => {
           console.log("Returned from post:", json);
           // TODO: test a result was returned!
-          this.mbList.push(json[0]);  
+          this.mbList.push(json[0]);
           this.activeMb = this.newMemberData();
         });
 
-          
+
     console.log("Creating (POSTing)...!");
     console.log(this.activeMb);
     },
@@ -167,6 +168,30 @@ var app = new Vue({
 
       console.log("Creating (POSTing)...!");
       console.log(this.newMbForm);
+    },
+
+    handleNewMemberCert(evt) {
+      // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
+
+      // TODO: Validate the data!
+
+      fetch("api/memberCerts/post.php", {
+          method: 'POST',
+          body: JSON.stringify(this.newMemberCert),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then(response => response.json())
+        .then(json => {
+          console.log("Returned from post:", json);
+          // TODO: test a result was returned!
+          this.mctList.push(json[0]);
+          this.newMemberCert = this.newMemberCertData();
+        });
+
+      console.log("Creating (POSTing)...!");
+      console.log(this.newMemberCert);
     },
 
     // handleMemCertForm(evt) {
