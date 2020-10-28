@@ -7,7 +7,8 @@ var app = new Vue({
     certForm: {},
     mctList: [],
     memberCerts: [],
-    newMbForm: {}
+    newMbForm: {},
+    ctList:[]
   },
   // computed: {
   //   activeMemberFirstName() {
@@ -75,6 +76,14 @@ var app = new Vue({
         homePhoneNum: ''
       }
     },
+    newMemberCertData() {
+      return {
+        certID: null,
+        personID: null,
+        certEarnDate: ''
+      }
+    },
+
     handleMemberForm(evt) {
       console.log("Form submitted!");
 
@@ -189,7 +198,15 @@ var app = new Vue({
 
         console.log(json)
       });
-    this.newMbForm = this.newMemberData();
+
+    fetch("api/certs/")
+    .then( response => response.json() )
+    .then( json => {
+      this.ctList = json;
+
+      console.log(json)
+    });
+    this.newMemberCert = this.newMemberCertData();
     // this.memberForm.personID = this.activeMb.personID;
   }
   // created() {

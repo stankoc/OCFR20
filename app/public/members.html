@@ -64,7 +64,7 @@
       <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
         <!-- <form method="post" v-on:submit.prevent="handleNewMemberForm"> -->
         <h3>Member List</h3>
-        <div class="patientCard" v-for="mb in mbList" v-on:click="activeMb = mb; fetchMemberCert(mb.personID)">
+        <div class="patientCard" v-for="mb in mbList" v-on:click="activeMb = mb; fetchMemberCert(mb.personID); newMemberCert.personID=mb.personID">
           <span class="lastName">{{ mb.lastName }}</span>,
           <span class="firstName">{{ mb.firstName }}</span>
         </div>
@@ -74,7 +74,7 @@
 
       <div class="col-6">
         <h1>Member</h1>
-        <form v-on:submit.prevent="updateMember" v-on:click="deleteMember" v-if="activeMb">
+        <form v-on:submit.prevent="deleteMember" v-on:submit.prevent="updateMember" v-if="activeMb">
           <div class="form-group">
             <label for="firstName">First Name</label>
             <input id="firstName" class="form-control" v-model="activeMb.firstName">
@@ -105,8 +105,8 @@
               <input type="position" class="form-control" id="inputPosition"  v-model="activeMb.position">
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Update Member</button>
-          <button type="deleteMember" class="btn btn-primary">Delete Member</button>
+          <button type="submit" @submit.prevent="updateMember" class="btn btn-primary">Update Member</button>
+          <button type="submit" @submit.prevent="deleteMember" class="btn btn-primary">Delete Member</button>
         </form>
       </div>
       <div class="col">
@@ -115,8 +115,16 @@
         <!-- <div class="patientCard" v-for="mct in mctList" v-bind:data-personID='mct.personID' :data-certID='mct.certID'> -->
         <div class="patientCard" v-for="mct in mctList" v-if="activeMb && activeMb.personID == mct.personID">
           <span class="certName">{{ mct.certName }}</span>
+          <!-- put cert earned date -->
         </div>
+        <div v-if="ctList.length">
+          <form>
+            <select v-model="newMemberCert.certID">
+              <option v-bind:value="c.certID" v-for="c in ctList">{{ c.certName }}</option>
+            </select>
 
+          </form>
+        </div>
          <!-- v-on:click="activeMb = mb" -->
         <!-- <button type="addCert" class="btn btn-primary">Add Certification</button> -->
         <!-- </form> -->
