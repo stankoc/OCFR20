@@ -28,11 +28,11 @@ var app = new Vue({
         .then(response => response.json())
         .then(json => {
           this.ctmList = json;
-    
-    
+
+
           console.log(json)
         });
-    
+
     // select all the certs where memberID is equal to this.memberform.memberID and assign it to membercerts
     },
 
@@ -79,6 +79,57 @@ var app = new Vue({
       console.log("Creating (POSTing)...!");
       console.log(this.newCertsForm);
     },
+
+    updateCert(evt) {
+
+      fetch("api/certs/update.php", {
+        method: 'POST',
+        body: JSON.stringify(this.activeCt),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+        .then(response => response.json())
+        .then(json => {
+          console.log("Returned from post:", json);
+          // TODO: test a result was returned!
+          this.ctList.push(json[0]);
+          this.activeCt = this.newCertsData();
+        });
+
+
+    console.log("Creating (POSTing)...!");
+    console.log(this.activeCt);
+  },
+  deleteCert(evt) {
+
+    fetch("api/certs/delete.php", {
+      method: 'POST',
+      body: JSON.stringify(this.activeCt),
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    })
+      .then(response => response.json())
+
+    fetch("api/certs/")
+      .then(response => response.json())
+      .then(json => {
+        this.ctList = json;
+
+        console.log(json)
+      });
+     this.newCertsForm = this.newCertsData();
+    // .then(json => {
+    //   console.log("Returned from post:", json);
+    //   // TODO: test a result was returned!
+    //   this.mbList.push(json[0]);
+    //   this.newMbForm = this.newMemberData();
+    // });
+
+  console.log("Creating (POSTing)...!");
+  console.log(this.activeCt);
+  },
 
   },
   created() {

@@ -70,17 +70,19 @@
       </div>
 
       <div class="col-6">
+        <form v-on:click = "updateCert ; deleteCert" v-if="activeCt">
         <h1>Certification Detail</h1>
-        <form v-on:submit.prevent="handleCertsForm">
+        <!-- <form v-on:submit.prevent="handleCertsForm"> -->
           <div class="form-group">
             <label for="certTitle">Title</label>
-            <input class="form-control" id="ptName" v-bind:value="activeCertsName" readonly>
+            <input class="form-control" id="certTitle" v-model="activeCt.certName">
             <label for="expDate">Expiration Period</label>
-            <input class="form-control" id="ptName" v-bind:value="activeCertsStanExp" readonly>
+            <input class="form-control" id="expDate" v-model="activeCt.certStanExp">
             <label for="Agency">Agency</label>
-            <input class="form-control" id="ptName" v-bind:value="activeCertsAgency" readonly>
+            <input class="form-control" id="Agency" v-model="activeCt.certAgency">
             <br>
-            <button type="editCertification" class="btn btn-primary">Edit Certification</button>
+            <button type="submit" @click="updateCert" class="btn btn-primary">Update Certification</button>
+            <button type="submit" @click="deleteCert" class="btn btn-primary">Delete Certification</button>
           </div>
         </form>
       </div>

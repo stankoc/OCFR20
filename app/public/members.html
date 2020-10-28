@@ -120,7 +120,7 @@
         </div>
         <br>
         <div v-if="ctList.length">
-          <form v-on:submit.prevent="handleNewMemberCert">
+          <form v-on:click="handleNewMemberCert">
             <select v-model="newMemberCert.certID">
               <option v-bind:value="c.certID" v-for="c in ctList">{{ c.certName }}</option>
             </select>
