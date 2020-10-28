@@ -21,8 +21,8 @@ $db = DbConnection::getConnection();
 
 
 $stmt = $db->prepare(
-  'DELETE FROM Person 
-  WHERE personID = ?;'
+  'DELETE FROM Person
+   WHERE personID = ?;'
 );
 
   $stmt->execute([
@@ -33,13 +33,13 @@ $stmt = $db->prepare(
 // ]);
 
 // $pubdate = $_POST['updatepubdate'];
-	
+
 // $title = $_POST['updatetitle'];
 
 // $publisher = $_POST['updatepublisher'];
 
 // $img = $_POST['updateimg'];
-  
+
 // $update = "UPDATE Books SET PublishDate='$pubdate', Title='$title', Publisher='$publisher', Image='$img' WHERE BookID = ".$bookid;
 // $conn->query($update) or die("Cannot update");//update or error
 // }
