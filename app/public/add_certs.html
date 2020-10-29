@@ -13,8 +13,8 @@
     <title>Home</title>
   </head>
   <body>
-    <div class="row"> 
-      <a class="navbar-brand" href="#">Oconee County Fire Rescue</a>
+    <div class="row">
+      <a class="navbar-brand" href="index.html">Oconee County Fire Rescue</a>
     </div>
     <nav class="navbar navbar-expand-md">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,8 +48,7 @@
               Reports
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="mem_stations.html">Members by Station</a>
-              <a class="dropdown-item" href="mem_radio.html">Members by Radio</a>
+              <a class="dropdown-item" href="mem_stations.html">Members by Station & Radio</a>
               <a class="dropdown-item" href="mem_exp_certs.html">Members with Expired Certifications</a>
             </div>
           </li>
@@ -74,7 +73,7 @@
           <label for="certStanExp">Certification Expiration Period</label>
           <input type="date" v-model="newCertsForm.certStanExp" class="form-control" id="certStanExp">
         </div>
-        
+
         <button type="submit" class="btn btn-primary">Add Certification</button>
       </form>
     </div>
