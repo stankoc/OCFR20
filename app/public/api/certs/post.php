@@ -19,13 +19,13 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO Certification (certID, certAgency, certName, certStanExp)
-  VALUES (?, ?, ?, ?)'
+  'INSERT INTO Certification (certAgency, certName, certStanExp)
+  VALUES (?, ?, ?)'
 );
 
 $stmt->execute([
   // $guid,
-  $_POST['certID'],
+  // $_POST['certID'],
   $_POST['certAgency'],
   $_POST['certName'],
   $_POST['certStanExp']
@@ -38,5 +38,5 @@ $pk = $db->lastInsertId();  // https://www.php.net/manual/en/pdo.lastinsertid.ph
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../certs/?');
+header('Location: ../certs/?certID=' . $pk);
 // guid=' . $guid

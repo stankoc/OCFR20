@@ -19,14 +19,14 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO Person (personID, firstName, lastName, address, city, st, zip, email,
+  'INSERT INTO Person (firstName, lastName, address, city, st, zip, email,
     dob, startDate, position, gender, stationNumber, isActive, radioNumber, workPhoneNum, cellPhoneNum, homePhoneNum)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
 );
 
 $stmt->execute([
   // $guid,
-  $_POST['personID'],
+  // $_POST['personID'],
   $_POST['firstName'],
   $_POST['lastName'],
   $_POST['address'],
@@ -53,5 +53,5 @@ $pk = $db->lastInsertId();  // https://www.php.net/manual/en/pdo.lastinsertid.ph
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../members/?');
+header('Location: ../members/?personID=' . $pk);
 // guid=' . $guid

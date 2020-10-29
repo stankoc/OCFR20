@@ -11,19 +11,19 @@ $sql = 'SELECT *
         ORDER BY certName asc';
 $vars = [];
 
-if (isset($_GET['guid'])) {
-  // This is an example of a parameterized query
-  $sql = 'SELECT * FROM Certification WHERE certID = ?';
-  $vars = [ $_GET['guid'] ];
-}
+// if (isset($_GET['guid'])) {
+//   // This is an example of a parameterized query
+//   $sql = 'SELECT * FROM Certification WHERE certID = ?';
+//   $vars = [ $_GET['guid'] ];
+// }
 
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
-$members = $stmt->fetchAll();
+$certs = $stmt->fetchAll();
 
 // Step 3: Convert to JSON
-$json = json_encode($members, JSON_PRETTY_PRINT);
+$json = json_encode($certs, JSON_PRETTY_PRINT);
 
 // Step 4: Output
 header('Content-Type: application/json');

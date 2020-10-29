@@ -8,20 +8,20 @@ var app = new Vue({
     certMembers: [],
     newCertsForm: {}
   },
-    computed: {
-      activeCertsName() {
-        return this.activeCt ? this.activeCt.certName : ''
-    },
-      activeCertsAgency() {
-        return this.activeCt ? this.activeCt.certAgency : ''
-    },
-      activeCertsStanExp() {
-        return this.activeCt ? this.activeCt.certStanExp : ''
-    },
-    activeCertMembers() {
-      return this.activeCt ? this.activeCt.lastName : ''
-    }
-  },
+  //   computed: {
+  //     activeCertsName() {
+  //       return this.activeCt ? this.activeCt.certName : ''
+  //   },
+  //     activeCertsAgency() {
+  //       return this.activeCt ? this.activeCt.certAgency : ''
+  //   },
+  //     activeCertsStanExp() {
+  //       return this.activeCt ? this.activeCt.certStanExp : ''
+  //   },
+  //   activeCertMembers() {
+  //     return this.activeCt ? this.activeCt.lastName : ''
+  //   }
+  // },
   methods: {
     fetchCertMember(certID) {
       fetch("api/certMembers/?certID=" + certID)
@@ -68,8 +68,8 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-      .then( response => response.json())
-      .then( json => {
+      .then(response => response.json())
+      .then(json => {
         console.log("Returned from post:", json);
         // TODO: test a result was returned!
         this.ctList.push(json[0]);
@@ -100,7 +100,7 @@ var app = new Vue({
 
     console.log("Creating (POSTing)...!");
     console.log(this.activeCt);
-  },
+    },
     deleteCert(evt) {
 
       fetch("api/certs/delete.php", {
