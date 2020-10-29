@@ -38,10 +38,10 @@ var app = new Vue({
 
     newCertsData() {
       return {
-        certID: '',
-        certAgency: '',
-        certName: '',
-        certStanExp: ''
+        certID: null,
+        certAgency: null,
+        certName: null,
+        certStanExp: null
       }
     },
 
