@@ -1,6 +1,7 @@
 var app = new Vue({
   el: '#newMemberPage',
   data: {
+    expList: [],
     mbList: [],
     activeMb: null,
     memberForm: {},
@@ -233,6 +234,17 @@ var app = new Vue({
         console.log(json)
       });
     this.newMemberCert = this.newMemberCertData();
+    
+    fetch("api/reports/")
+      .then(response => response.json())
+      .then(json => {
+        this.expList = json;
+
+        console.log(json)
+      });
+
+
+
     // this.memberForm.personID = this.activeMb.personID;
   }
   // created() {
