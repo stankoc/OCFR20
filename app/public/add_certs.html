@@ -64,11 +64,11 @@
       <form method="post" v-on:submit.prevent="handleNewCertsForm">
         <div class="form-group">
           <label for="certAgency">Certification Agency</label>
-          <input type="certAgency" v-model="newCertsForm.certAgency" class="form-control" id="certAgency">
+          <input type="text" v-model="newCertsForm.certAgency" class="form-control" id="certAgency">
         </div>
         <div class="form-group">
           <label for="certName">Certification Name</label>
-          <input type="certName" v-model="newCertsForm.certName" class="form-control" id="certName">
+          <input type="text" v-model="newCertsForm.certName" class="form-control" id="certName">
         </div>
         <div class="form-group">
           <label for="certStanExp">Certification Expiration Period</label>

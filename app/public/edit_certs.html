@@ -70,7 +70,7 @@
       </div>
 
       <div class="col-6">
-        <form v-on:click = "updateCert ; deleteCert" v-if="activeCt">
+        <form v-on:click.prevent = "updateCert ; deleteCert" v-if="activeCt">
         <h1>Certification Detail</h1>
         <!-- <form v-on:submit.prevent="handleCertsForm"> -->
           <div class="form-group">

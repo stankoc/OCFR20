@@ -40,8 +40,8 @@ var app = new Vue({
       return {
         certID: null,
         certAgency: null,
-        certName: null,
-        certStanExp: null
+        certName: '',
+        certStanExp: ''
       }
     },
 
@@ -68,7 +68,7 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-      .then( response => response.json() )
+      .then( response => response.json())
       .then( json => {
         console.log("Returned from post:", json);
         // TODO: test a result was returned!
@@ -101,35 +101,35 @@ var app = new Vue({
     console.log("Creating (POSTing)...!");
     console.log(this.activeCt);
   },
-  deleteCert(evt) {
+    deleteCert(evt) {
 
-    fetch("api/certs/delete.php", {
-      method: 'POST',
-      body: JSON.stringify(this.activeCt),
-      headers: {
-        "Content-Type": "application/json; charset=utf-8"
-      }
-    })
-      .then(response => response.json())
+      fetch("api/certs/delete.php", {
+        method: 'POST',
+        body: JSON.stringify(this.activeCt),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+        .then(response => response.json())
 
-    fetch("api/certs/")
-      .then(response => response.json())
-      .then(json => {
-        this.ctList = json;
+      fetch("api/certs/")
+        .then(response => response.json())
+        .then(json => {
+          this.ctList = json;
 
-        console.log(json)
-      });
-     this.newCertsForm = this.newCertsData();
-    // .then(json => {
-    //   console.log("Returned from post:", json);
-    //   // TODO: test a result was returned!
-    //   this.mbList.push(json[0]);
-    //   this.newMbForm = this.newMemberData();
-    // });
+          console.log(json)
+        });
+      this.newCertsForm = this.newCertsData();
+      // .then(json => {
+      //   console.log("Returned from post:", json);
+      //   // TODO: test a result was returned!
+      //   this.mbList.push(json[0]);
+      //   this.newMbForm = this.newMemberData();
+      // });
 
-  console.log("Creating (POSTing)...!");
-  console.log(this.activeCt);
-  },
+    console.log("Creating (POSTing)...!");
+    console.log(this.activeCt);
+    },
 
   },
   created() {
