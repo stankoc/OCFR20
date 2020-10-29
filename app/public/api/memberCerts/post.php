@@ -19,14 +19,15 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO Earn_Certification (personID, certID, certEarnDate)
-  VALUES (?, ?, ?)'
+  'INSERT INTO Earn_Certification (personID, certID, certEarnDate, certExpDate)
+  VALUES (?, ?, ?, ?)'
 );
 
 $stmt->execute([
   $_POST['personID'],
   $_POST['certID'],
-  $_POST['certEarnDate']
+  $_POST['certEarnDate'],
+  $_POST['certExpDate']
 ]);
 
 // If needed, get auto-generated PK from DB

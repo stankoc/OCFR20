@@ -74,7 +74,7 @@
 
       <div class="col-6">
         <h1>Member</h1>
-        <form v-on:click="updateMember ; deleteMember" v-if="activeMb">
+        <form v-on:click.prevent="updateMember ; deleteMember" v-if="activeMb">
           <!-- <form v-on:submit.prevent="updateMember" v-on:submit.prevent="deleteMember" v-if="activeMb"> -->
           <div class="form-group">
             <label for="firstName">First Name</label>
@@ -119,7 +119,7 @@
           <!-- put cert earned date -->
         </div>
         <br>
-        <div v-if="ctList.length">
+        <div v-if="ctList.length && activeMb">
           <form v-on:submit.prevent="handleNewMemberCert">
             <select v-model="newMemberCert.certID">
               <option v-bind:value="c.certID" v-for="c in ctList">{{ c.certName }}</option>
@@ -127,7 +127,11 @@
             <br>
             <div class="form-group col-md-6">
               <label for="certEarnDate">Certification Earn Date</label>
-              <input type="text" v-model="newMemberCert.certEarnDate" class="form-control" id="certEarnDate">
+              <input type="date" v-model="newMemberCert.certEarnDate" class="form-control" id="certEarnDate">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="certExpDate">Certification Expiration Date</label>
+              <input type="date" v-model="newMemberCert.certExpDate" class="form-control" id="certExpDate">
             </div>
             <!-- <button type="submit" @submit.prevent="handleNewMemberCert" class="btn btn-primary">Add Member Certification</button> -->
             <button type="submit" @submit.prevent = "handleNewMemberCert" class="btn btn-primary">Add Member Certification</button>

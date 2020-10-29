@@ -81,7 +81,8 @@ var app = new Vue({
       return {
         certID: null,
         personID: null,
-        certEarnDate: ''
+        certEarnDate: '',
+        certExpDat: ''
       }
     },
 

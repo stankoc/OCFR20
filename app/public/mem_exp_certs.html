@@ -57,6 +57,26 @@
       </div>
     </nav>
     <h2>Members with Expired Certifications</h2>
+    <div id="newMemberPage">
+      <table id="sortTable" class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Station Number</th>
+            <th scope="col">Name</th>
+            <th scope="col">Radio Number</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="mb in mbList">
+            <th scope="row">{{ mb.stationNumber }}</th>
+            <td>{{ mb.firstName + ' ' + mb.lastName }}</td>
+            <td>{{ mb.radioNumber }}</td>
+            <td><a href="mailto:erculkin@iu.edu">{{ mb.email }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <br>
     <table class="table table-striped">
       <thead>
@@ -104,5 +124,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/index.app.js"></script>
+    <script src="js/members.app.js"></script>
+    <script src="js/tablesort.min.js"></script>
+    <script>
+      new Tablesort(document.getElementById('sortTable'));
+    </script>
   </body>
 </html>
