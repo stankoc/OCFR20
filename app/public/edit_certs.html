@@ -80,8 +80,8 @@
             <label for="Agency">Agency</label>
             <input class="form-control" id="Agency" v-model="activeCt.certAgency">
             <br>
-            <button type="submit" @click="updateCert" class="btn btn-primary">Update Certification</button>
-            <button type="submit" @click="deleteCert" class="btn btn-primary">Delete Certification</button>
+            <button type="submit" @click.prevent="updateCert" class="btn btn-primary">Update Certification</button>
+            <button type="submit" @click.prevent="deleteCert" class="btn btn-primary">Delete Certification</button>
           </div>
         </form>
       </div>
