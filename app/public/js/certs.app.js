@@ -93,7 +93,7 @@ var app = new Vue({
         .then(json => {
           console.log("Returned from post:", json);
           // TODO: test a result was returned!
-          this.ctList.push(json[0]);
+          this.ctList = json;
           this.activeCt = this.newCertsData();
         });
 

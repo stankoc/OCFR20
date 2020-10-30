@@ -139,7 +139,7 @@ var app = new Vue({
         .then(json => {
           console.log("Returned from post:", json);
           // TODO: test a result was returned!
-          this.mbList.push(json[0]);
+          this.mbList = json;
           this.activeMb = this.newMemberData();
         });
 
@@ -234,7 +234,7 @@ var app = new Vue({
         console.log(json)
       });
     this.newMemberCert = this.newMemberCertData();
-    
+
     fetch("api/reports/")
       .then(response => response.json())
       .then(json => {
