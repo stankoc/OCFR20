@@ -108,14 +108,14 @@ var app = new Vue({
         })
         .then(response => response.json())
 
-      fetch("api/members/")
-        .then(response => response.json())
+      // fetch("api/members/")
+      //   .then(response => response.json())
         .then(json => {
           this.mbList = json;
-
+          this.activeMb = null;
           console.log(json)
         });
-      this.newMbForm = this.newMemberData();
+      //this.newMbForm = this.newMemberData();
       // .then(json => {
       //   console.log("Returned from post:", json);
       //   // TODO: test a result was returned!

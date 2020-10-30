@@ -101,6 +101,7 @@ var app = new Vue({
     console.log("Creating (POSTing)...!");
     console.log(this.activeCt);
     },
+
     deleteCert(evt) {
 
       fetch("api/certs/delete.php", {
@@ -112,14 +113,15 @@ var app = new Vue({
       })
         .then(response => response.json())
 
-      fetch("api/certs/")
-        .then(response => response.json())
+      // fetch("api/certs/")
+      //   .then(response => response.json())
         .then(json => {
+          console.log("Returned from post:", json);
           this.ctList = json;
-
+          this.activeCt = null;
           console.log(json)
         });
-      this.newCertsForm = this.newCertsData();
+      //this.newCertsForm = this.newCertsData();
       // .then(json => {
       //   console.log("Returned from post:", json);
       //   // TODO: test a result was returned!
