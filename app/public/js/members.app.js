@@ -189,7 +189,8 @@ var app = new Vue({
           console.log("Returned from post:", json);
           // TODO: test a result was returned!
           this.mctList = json;
-          this.newMemberCert = this.newMemberCertData();
+          this.activeMb = null;
+          // this.newMemberCert = this.newMemberCertData();
         });
 
       console.log("Creating (POSTing)...!");
