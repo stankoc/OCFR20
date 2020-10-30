@@ -10,13 +10,14 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <!-- my custom CSS goes here -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="shortcut icon" href="#" />
 
   <title>Home</title>
 </head>
 
 <body>
   <div class="row">
-    <a class="navbar-brand" href="index.html">Oconee County Fire Rescue</a>
+    <a id="titleNav" class="navbar-brand" href="index.html">Oconee County Fire Rescue</a>
   </div>
   <nav class="navbar navbar-expand-md">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -120,15 +121,18 @@
         <br>
         <div v-if="ctList.length && activeMb">
           <form v-on:submit.prevent="handleNewMemberCert">
+            <label for="certID">New Certification:</label>
             <select v-model="newMemberCert.certID">
               <option v-bind:value="c.certID" v-for="c in ctList">{{ c.certName }}</option>
             </select>
             <br>
-            <div class="form-group col-md-6">
+            <br>
+            <br>
+            <div class="form-group col-md-9">
               <label for="certEarnDate">Certification Earn Date</label>
               <input type="date" v-model="newMemberCert.certEarnDate" class="form-control" id="certEarnDate">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-9">
               <label for="certExpDate">Certification Expiration Date</label>
               <input type="date" v-model="newMemberCert.certExpDate" class="form-control" id="certExpDate">
             </div>

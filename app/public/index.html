@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- my custom CSS goes here -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="#" />
 
     <title>Home</title>
   </head>
   <body>
     <div class="row">
-      <a class="navbar-brand" href="index.html">Oconee County Fire Rescue</a>
+      <a id="titleNav" class="navbar-brand" href="index.html">Oconee County Fire Rescue</a>
     </div>
     <nav class="navbar navbar-expand-md">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,10 +56,12 @@
         </ul>
       </div>
     </nav>
-
+  <div class="container-fluid">
     <h2>About Oconee County Fire Rescue</h2>
     <br>
-    <img src="img/ocfr.jpg" width="40%">
+    <div id="centerimg">
+      <img src="img/ocfr.jpg">
+    </div>
     <br>
     <br>
     <h5>Mission Statement</h5>
@@ -90,7 +93,7 @@
     <p>Tradition enhanced and improved through innovation. Innovation can modernize and improve our service to our citizens and impact positively the safety of our members. We are committed to advancing change through innovative and progressive thinking that will benefit those that we serve.</p>
     <!-- Source: http://www.sjcfl.us/FireRescue/Mission.aspx -->
 
-
+  </div>
     <!-- Footer? Insert here -->
 
     <!-- Optional JavaScript -->
@@ -100,6 +103,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/members.app.js"></script>
   </body>
 </html>

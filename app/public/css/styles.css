@@ -33,6 +33,10 @@ nav,
   padding-left: 35%;
 }
 
+#titleNav:hover {
+  color: darkred;
+}
+
 
 /* --------------------------------NAVIGATION--------------------------------------------*/
 
@@ -151,3 +155,6 @@ th[role=columnheader]:not(.no-sort):hover:after {
 }
 
 /* --------------------------------TABLE SORT--------------------------------------------*/
+#centerimg {
+  text-align: center;
+}

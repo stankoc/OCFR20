@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- my custom CSS goes here -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="#" />
 
     <title>Home</title>
   </head>
   <body>
     <div class="row">
-      <a class="navbar-brand" href="index.html">Oconee County Fire Rescue</a>
+      <a id="titleNav" class="navbar-brand" href="index.html">Oconee County Fire Rescue</a>
     </div>
     <nav class="navbar navbar-expand-md">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,8 +56,8 @@
         </ul>
       </div>
     </nav>
-    <h2>Members with Expired Certifications</h2>
-    <div id="newMemberPage">
+    <div class="container-fluid" id="newMemberPage">
+      <h2>Members with Expired Certifications</h2>
       <table id="sortTable" class="table table-striped">
         <thead>
           <tr>
